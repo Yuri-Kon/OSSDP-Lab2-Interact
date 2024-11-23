@@ -1,8 +1,8 @@
-package Solution19;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 /*
-针对低第19题编写的测试类
+针对第19题编写的测试类
 测试类设计：
 测试目标
 1.验证游戏规则的正确性
@@ -32,92 +32,110 @@ public class L2022112879_19_Test {
     //测试规则一：活细胞少于2个活邻居死亡
     @Test
     public void testRule1_Underpopulation(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][] board = {{1,0}, {0,0}};
         int[][] expected = {{0,0}, {0,0}};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected,board);
     }
 
     //测试规则二：活细胞有2或3个活邻居存货
     @Test
     public void testRule2_Surival(){
-        Solution solution = new Solution();
-        int[][] board = {{1,1,0}, {1,1,0},{0,0,0}};
-        int[][] expected = {{1,1,0}, {1,1,0},{0,0,0}};
-        solution.gameOfLife(board);
+        Solution19 solution19 = new Solution19();
+        int[][] board = {
+                {1,1,0},
+                {1,1,0},
+                {0,0,0}};
+        int[][] expected = {
+                {1,1,0},
+                {1,1,0},
+                {0,0,0}};
+        solution19.gameOfLife(board);
         assertArrayEquals(expected,board);
     }
     //测试规则三：活细胞多于3个活邻居死亡
     @Test
     public void testRule3_Overpopulation(){
-        Solution solution = new Solution();
-        int[][]board = {{1, 1, 1}, {1, 1, 0}, {0, 0, 0}};
-        int[][] expected = {{1, 0, 1}, {0, 0, 0}, {0, 0, 0}};
-        solution.gameOfLife(board);
+        Solution19 solution19 = new Solution19();
+        int[][]board = {
+                {1, 1, 1},
+                {0, 1, 0},
+                {0, 1, 0}};
+        int[][] expected = {
+                {1, 1, 1},
+                {0, 0, 0},
+                {0, 0, 0}};
+        solution19.gameOfLife(board);
         assertArrayEquals(expected, board);
     }
     //测试规则四：死细胞正好有三个活邻居复活
     @Test
     public void testRule4_Reproduction() {
-        Solution solution = new Solution();
-        int[][] board = {{0, 1, 0}, {1, 0, 1}, {0, 0, 0}};
-        int[][] expected = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
-        solution.gameOfLife(board);
+        Solution19 solution19 = new Solution19();
+        int[][] board = {
+                {0, 1, 0},
+                {1, 0, 1},
+                {0, 0, 0}};
+        int[][] expected = {
+                {0, 1, 0},
+                {0, 1, 0},
+                {0, 0, 0}};
+        solution19.gameOfLife(board);
         assertArrayEquals(expected, board);
     }
     //测试空棋盘
     @Test
     public void testEmptyBoard(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][] board = {};
         int[][] expected = {};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected, board);
     }
     //测试单行棋盘
     @Test
     public void testSingleRowBoard(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][] board = {{1,0,1,0,1}};
         int[][] expected = {{0,0,0,0,0}};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected, board);
     }
     //测试单列棋盘
     @Test
     public void testSingleColBoard(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][] board = {{1},{0}, {1}, {0}, {1}};
         int[][] expected = {{0},{0},{0},{0},{0}};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected,board);
     }
     //测试非对称棋盘
     @Test
     public void testAsymmetricBoard(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][] board = {{1,1,0},{1,0,0}};
         int[][] expected = {{1,1,0},{1,1,0}};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected,board);
     }
     //测试全活棋盘
     @Test
     public void testAllAliveBoard(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][]board = {{1,1},{1,1}};
         int[][] expected = {{1,1},{1,1}};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected,board);
     }
     //测试全死棋盘
     @Test
     public void testAllDeadBoard(){
-        Solution solution = new Solution();
+        Solution19 solution19 = new Solution19();
         int[][]board = {{0,0},{0,0}};
         int[][] expected = {{0,0},{0,0}};
-        solution.gameOfLife(board);
+        solution19.gameOfLife(board);
         assertArrayEquals(expected,board);
     }
 }
